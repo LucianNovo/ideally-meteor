@@ -1,0 +1,55 @@
+<head>
+  <title>Ideally</title>
+</head>
+
+<body>
+	{{> body}}
+</body>
+
+<template name="body">
+	{{renderPage}}
+</template>
+
+<template name="404">
+	404 brah.
+</template>
+
+<template name="listIdeas">
+	<body>
+		<ul class="list"> 
+			{{# each singIdea}}
+				{{>proposal}}
+			{{/each}} 
+		</ul>
+	</body>
+</template>
+
+
+<template name="proposal">
+	<div class="idea-body">
+		<a name="{{_id}}">{{description}}</a>
+	</div>
+
+	<div class="idea-comments">
+	</div>
+
+	<div class="uid">{{creator}}</div>
+	<div class="timestamp">{{created}}</div>
+</template>
+
+
+<template name="idea_submission">
+	<body>
+		  {{greeting}}
+		  <input class="idea-title" type="text" value="null"/>
+		  <input class="idea-description" type="text" value="null"/>
+		  <input type="button" class="submit-idea" value="Submit" />
+	</body>
+</template>
+
+
+
+<template name = "index">
+	{{> idea_submission}}
+	{{> listIdeas}}
+</template>
